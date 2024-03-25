@@ -27,6 +27,8 @@ export default App;
 */
 
 import axios from 'axios';
+import CollectionList from './components/CollectionList';
+
 import './App.css';
 
 //data will be the string we send from our server
@@ -41,6 +43,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <CollectionList />
 
         <button onClick={apiCall}>Make API Call</button>
 

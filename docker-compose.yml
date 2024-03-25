@@ -1,0 +1,28 @@
+version: "3.5"
+
+services:
+  backend:
+    build: server/.
+    
+    container_name: backend_dl
+    ports:
+      - "5000:5000"
+    networks:
+      - data_lake
+
+  client:
+    build: client/.
+    
+    container_name: client_dl
+    ports:
+      - "3000:3000"
+    networks:
+      - data_lake
+    volumes:
+      - ./client/public:/react-docker/public
+      - ./client/src:/react-docker/src
+
+
+networks:
+  data_lake:
+    name: data_lake
